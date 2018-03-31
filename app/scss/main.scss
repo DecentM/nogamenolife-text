@@ -1,0 +1,119 @@
+@charset 'UTF-8';
+
+@import 'node_modules/css-reset-and-normalize-sass/scss/flavored-reset-and-normalize';
+@import './variables';
+@import './mixins';
+
+.route-root {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: block;
+}
+
+@each $name, $value in $colours {
+  .bg-#{$name} {
+    background-color: $value;
+  }
+
+  .text-#{$name} {
+    color: $value;
+  }
+}
+
+.box {
+  @include smart-padding(1rem);
+
+  background-color: map-get($colours, 'white');
+}
+
+.foldable {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: -20%;
+
+  @include bezier(.3s);
+
+  &.folded {
+    top: 40px;
+    pointer-events: none;
+  }
+}
+
+button {
+  @include smart-padding(.75rem);
+  @include bezier(.2s);
+
+  border: none;
+  z-index: 2;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:active {
+    filter: brightness(82.5%);
+  }
+
+  &.is-brand {
+    @include decentm-background;
+    @include material-shadow(6);
+
+    &:hover {
+      @include material-shadow(8);
+    }
+
+    &:active {
+      @include material-shadow(3);
+    }
+  }
+}
+
+.is- {
+  &fullwidth {
+    width: 100%;
+  }
+
+  &fullheight {
+    height: 100%;
+  }
+}
+
+@for $i from 1 through 10 {
+  .has-margin-#{$i} {
+    @include smart-margin($i + 0rem);
+  }
+
+  .has-padding-#{$i} {
+    @include smart-padding($i + 0rem);
+  }
+
+  .is-maxheight-#{$i} {
+    max-height: $i * 10rem;
+  }
+
+  .is-minheight-#{$i} {
+    min-height: $i * 10rem;
+  }
+
+  .is-maxwidth-#{$i} {
+    max-width: $i * 10rem;
+  }
+
+  .is-minwidth-#{$i} {
+    min-width: $i * 10rem;
+  }
+}
+
+.is-vcentered {
+  display: flex;
+  align-items: center;
+}
+
+.is-hcentered {
+  display: flex;
+  justify-content: center;
+}

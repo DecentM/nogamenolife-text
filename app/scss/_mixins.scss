@@ -1,0 +1,28 @@
+@mixin smart-padding($size) {
+  padding: $size;
+  padding-left: $size * 1.5;
+  padding-right: $size * 1.5;
+}
+
+@mixin smart-margin($size) {
+  margin: $size;
+  margin-left: $size * 1.5;
+  margin-right: $size * 1.5;
+}
+
+@mixin decentm-background {
+  background: linear-gradient(130deg, #000FE5, #005FFF);
+  color: white;
+}
+
+@mixin material-shadow($arg: 6) {
+  $size: $arg * 10px;
+  // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 ($size / 6) ($size / 3) rgba(0,0,0,0.19), 0 ($size / 10) ($size / 10) rgba(0,0,0,0.23);
+}
+
+@mixin bezier($speed) {
+  transition-duration: $speed;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.6,.01,.6,.99);
+}
