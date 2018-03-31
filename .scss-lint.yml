@@ -1,0 +1,34 @@
+exclude: "node_modules/**"
+
+linters:
+  ColorVariable:
+    enabled: false
+
+  EmptyLineBetweenBlocks:
+    enabled: false
+    ignore_single_line_blocks: true
+
+  ImportantRule:
+    enabled: false
+
+  NestingDepth:
+    enabled: true
+    max_depth: 5
+    ignore_parent_selectors: false
+
+  PropertySpelling:
+    enabled: true
+    extra_properties: [
+      'max-font-size',
+      'min-font-size',
+      'behavior'
+    ]
+    disabled_properties: []
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 4
+
+  SpaceAroundOperator:
+    enabled: false
+    style: one_space # or 'at_least_one_space', or 'no_space'

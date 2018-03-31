@@ -1,0 +1,132 @@
+# User files
+.ignored
+
+# Environment variables
+.*.env
+.env.json
+
+# Vim temp files
+.sw[a-p]
+.*.sw[a-p]
+
+Session.vim
+.netrwhist
+tags
+
+# Sublime Text temp files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+*.sublime-workspace
+sftp-config.json
+
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+oscrypto-ca-bundle.crt
+bh_unicode_properties.cache
+
+GitHub.sublime-settings
+
+# Kate temp files
+.*.kate-swp
+.swp.*
+
+# Git temp files
+*.orig
+
+# Files Dropbox places in synchronised directories
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+# Linux metadata
+*~
+.directory
+.tmp
+
+.Trash-*
+.nfs*
+.fuse_hidden*
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Windows metadata
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+Desktop.ini
+$RECYCLE.BIN/
+
+*.cab
+*.msi
+*.msm
+*.msp
+
+*.lnk
+
+# MacOS metadata
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+Icon
+._*
+
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Executables
+/bfg.jar
+/fly
+
+# Testing artifacts
+/reports
+lib-cov
+coverage
+.nyc_output
+
+# Build systems
+build
+.grunt
+.gulp-scss-cache
+.sass-cache
+.nuxt
+.eslintcache
+
+*.css.map
+typings/
+
+# Files Node, NPM and Yarn may create
+node_modules/
+.npm
+
+logs
+*.log
+npm-debug.log*
+.node_repl_history
+
+.yarn-integrity
+yarn-debug.log*
+yarn-error.log*
