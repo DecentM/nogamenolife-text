@@ -144,12 +144,11 @@
     position: absolute;
     background-color: rgba(0, 0, 0, .3);
     height: 4rem;
-    width: 14rem;
+    width: 10rem;
     bottom: 5rem;
     right: 0;
     align-items: flex-end;
     justify-content: flex-end;
-    border-top-left-radius: 5px;
     padding: 1rem;
   }
 </style>
@@ -208,7 +207,7 @@
 
     .backlink-wrapper
       .backlink
-        p Made by DecentM on the 31st of March, 2018
+        p Made by DecentM on the 1st of April, 2018
         a(
           href="https://blog.decentm.com/no-game-no-life-text-effect-css",
           rel="noopener",
