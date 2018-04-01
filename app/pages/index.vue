@@ -2,13 +2,25 @@
   import axios from 'axios'
 
   const crappyClone = (payload) => JSON.parse(JSON.stringify(payload))
+  const postUrl = 'https://blog.decentm.com/no-game-no-life-text-effect-css/'
 
   export default {
-    async asyncData () {
+    data () {
+      return {
+        'showPalette':   false,
+        'font':          true,
+        'showing':       true,
+        'countLimit':    6,
+        'customText':    '',
+        'postStatus':    null,
+        'postPublished': true,
+      }
+    },
+    async mounted () {
       let res = null
 
       try {
-        res = await axios.head('https://blog.decentm.com/no-game-no-life-text-effect-css/')
+        res = await axios.head(postUrl)
       } catch (error) {
         res = null
 
@@ -17,22 +29,8 @@
         }
       }
 
-      const postPublished = res.status !== 404
-      const postStatus = res
-
-      return {
-        postPublished,
-        postStatus,
-      }
-    },
-    data () {
-      return {
-        'showPalette': false,
-        'font':        true,
-        'showing':     true,
-        'countLimit':  6,
-        'customText':  '',
-      }
+      this.postPublished = res.status !== 404
+      this.postStatus = res
     },
     'methods': {
       toggle (item) {
@@ -49,6 +47,9 @@
       },
     },
     'computed': {
+      postUrl () {
+        return postUrl
+      },
       lines () {
         return [
           'This world is just a crappy game without rules.',
@@ -280,7 +281,7 @@
         p Made by DecentM on the 1st of April, 2018
         a(
           v-if="postPublished",
-          href="https://blog.decentm.com/no-game-no-life-text-effect-css",
+          :href="postUrl",
           rel="noopener",
           target="_blank"
         )
