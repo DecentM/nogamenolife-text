@@ -58,7 +58,7 @@ module.exports = {
     [
       'nuxt-matomo', {
         'matomoUrl': '//pwk.decentm.com/',
-        'siteId':    10,
+        'siteId':    11,
         'cookies':   false,
       },
     ],

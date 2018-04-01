@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "postmerge": "yarn --silent --frozen-lockfile --non-interactive --production=false",
-    "postcommit": "yarn --silent --frozen-lockfile --non-interactive --production=false"
+    "postcommit": "yarn --silent --frozen-lockfile --non-interactive --production=false",
+    "predeploy": "rm -rf dist && nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -35,6 +37,7 @@
     "postcss-will-change": "^2.0.0",
     "postcss-will-change-transition": "^1.2.0",
     "pug": "^2.0.3",
+    "push-dir": "^0.4.1",
     "rucksack-css": "^1.0.2",
     "sass-loader": "^6.0.7",
     "vue2-filters": "^0.3.0"
