@@ -15,6 +15,15 @@
       toggle (item) {
         this[item] = !this[item]
       },
+      validate (event) {
+        const min = 1
+        const max = 6
+        const value = parseInt(event.target.value, 10)
+
+        this.countLimit = Math.min(Math.max(value, min), max)
+
+        return true
+      },
     },
     'computed': {
       lines () {
@@ -171,13 +180,13 @@
 
     .panel-wrapper
       .panel.is-minheight-4
-        button.bg-purple.text-white(@click="toggle('showing')") Toggle text showing
-        button.bg-yellow(@click="toggle('font')") Toggle font
-        button.bg-red.text-white(@click="toggle('showPalette')") Toggle palette
+        button.bg-purple.text-white(@click="toggle('showing')") Show text: {{showing ? 'ON' : 'OFF'}}
+        button.bg-yellow(@click="toggle('font')") Use font: {{font ? 'ON' : 'OFF'}}
+        button.bg-red.text-white(@click="toggle('showPalette')") Show palette: {{showPalette ? 'ON' : 'OFF'}}
         button.bg-white
           label.is-vcentered.is-hcentered
             p.is-hcentered Count
-            input(type="number", v-model="countLimit", min="1", max="6")
+            input(type="number", v-model="countLimit", min="1", max="6", @input="validate")
 
     .showcase-wrapper.spread(:class="{'font-ngnl': font}")
       .column
