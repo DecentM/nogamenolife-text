@@ -1,0 +1,30 @@
+@import '../variables';
+
+button {
+  @include smart-padding(.75rem);
+  @include bezier(.2s);
+
+  border: none;
+  z-index: 2;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:active {
+    filter: brightness(82.5%);
+  }
+
+  &.is-brand {
+    @include decentm-background;
+    @include material-shadow(6);
+
+    &:hover {
+      @include material-shadow(8);
+    }
+
+    &:active {
+      @include material-shadow(3);
+    }
+  }
+}

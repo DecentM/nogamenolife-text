@@ -1,0 +1,50 @@
+@for $i from 1 through 50 {
+  .has-margin-#{$i} {
+    @include smart-margin($i + 0rem);
+  }
+
+  .has-padding-#{$i} {
+    @include smart-padding($i + 0rem);
+  }
+
+  .is-maxheight-#{$i} {
+    max-height: $i + 0rem;
+  }
+
+  .is-minheight-#{$i} {
+    min-height: $i + 0rem;
+  }
+
+  .is-maxwidth-#{$i} {
+    max-width: $i + 0rem;
+  }
+
+  .is-minwidth-#{$i} {
+    min-width: $i + 0rem;
+  }
+}
+
+.is- {
+  &fullwidth {
+    width: 100%;
+  }
+
+  &fullheight {
+    height: 100%;
+  }
+}
+
+.is-vcentered {
+  display: flex;
+  align-items: center;
+}
+
+.is-hcentered {
+  display: flex;
+  justify-content: center;
+}
+
+.spread {
+  flex: 1;
+  display: flex;
+}

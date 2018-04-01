@@ -51,6 +51,9 @@ module.exports = {
   'css': [
     '~/scss/main.scss',
   ],
+  'plugins': [
+    '~/plugins/vue-filters',
+  ],
   'modules': [
     [
       'nuxt-matomo', {

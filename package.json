@@ -35,6 +35,7 @@
     "postcss-will-change-transition": "^1.2.0",
     "pug": "^2.0.3",
     "rucksack-css": "^1.0.2",
-    "sass-loader": "^6.0.7"
+    "sass-loader": "^6.0.7",
+    "vue2-filters": "^0.3.0"
   }
 }

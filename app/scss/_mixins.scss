@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin smart-padding($size) {
   padding: $size;
   padding-left: $size * 1.5;
@@ -17,7 +19,6 @@
 
 @mixin material-shadow($arg: 6) {
   $size: $arg * 10px;
-  // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   box-shadow: 0 ($size / 6) ($size / 3) rgba(0,0,0,0.19), 0 ($size / 10) ($size / 10) rgba(0,0,0,0.23);
 }
 
@@ -25,4 +26,16 @@
   transition-duration: $speed;
   transition-property: all;
   transition-timing-function: cubic-bezier(.6,.01,.6,.99);
+}
+
+@mixin ease-out($speed) {
+  transition-duration: $speed;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.19,.84,.53,1);
+}
+
+@mixin ease-in($speed) {
+  transition-duration: $speed;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.9,.11,.83,.52);
 }

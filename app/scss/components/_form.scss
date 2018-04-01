@@ -1,0 +1,27 @@
+@import '../variables';
+@import '../mixins';
+
+label {
+  display: flex;
+  align-content: space-around;
+  flex-direction: row;
+
+  > * {
+    &:first-child {
+      margin-left: 1rem;
+      flex: 2;
+    }
+
+    &:last-child {
+      margin-right: 1rem;
+      flex: 1;
+    }
+  }
+}
+
+input {
+  @include material-shadow(3);
+  @include smart-padding(.5rem);
+
+  border: none;
+}

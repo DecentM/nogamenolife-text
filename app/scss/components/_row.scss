@@ -1,0 +1,22 @@
+@import '../variables';
+
+.row {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-direction: row;
+
+  &.is-reverse {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+  }
+
+  &.is-wrapping {
+    flex-wrap: wrap;
+  }
+
+  > * {
+    flex: 1;
+    display: flex;
+  }
+}

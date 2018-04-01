@@ -1,0 +1,8 @@
+@for $i from 1 through 36 {
+  $deg: $i * 10;
+
+  .rotated-#{$deg},
+  .rotate-#{$deg} {
+    transform: rotate($deg + 0deg);
+  }
+}

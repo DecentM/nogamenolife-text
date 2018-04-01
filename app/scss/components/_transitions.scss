@@ -1,0 +1,22 @@
+@import './mixins';
+@import './variables';
+
+.has-transition {
+  @include bezier(.3s);
+
+  &.fast {
+    @include bezier(.2s);
+  }
+}
+
+@for $i from 1 through 30 {
+  .has-delay-#{$i} {
+    transition-delay: $i / 15 + 0s;
+
+    &::before,
+    &::after,
+    * {
+      transition-delay: $i / 15 + 0s;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../mixins/column';
+@import './variables';
+
+@font-face {
+	font-family: "ngnl";
+	src: url("../fonts/ngnl.ttf") format("truetype");
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: responsive;
+    max-font-size: ((10px - $i * 4) + 30px);
+    min-font-size: ((11px - $i * 4) + 25px);
+  }
+}
+
+.route-root {
+  @include flex-column;
+
+  min-height: 100vh;
+
+  > * {
+    width: 100%;
+
+    &:last-child {
+      margin-top: auto;
+    }
+  }
+}
+
+body {
+  overflow: hidden;
+}

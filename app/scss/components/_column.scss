@@ -1,0 +1,20 @@
+@import '../mixins/column';
+@import '../variables';
+
+.column {
+  @include flex-column;
+
+  &.is-reverse {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+  }
+
+  &.is-wrapping {
+    flex-wrap: wrap;
+  }
+
+  > * {
+    flex: 1;
+    display: flex;
+  }
+}
