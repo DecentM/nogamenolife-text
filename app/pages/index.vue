@@ -100,7 +100,7 @@
   }
 
   .showcase-wrapper {
-    background-image: url('/dakgisi-jibril.png');
+    background-image: url('/nogamenolife-text/dakgisi-jibril.png');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -133,7 +133,7 @@
       &::after {
         opacity: 1;
         visibility: hidden;
-        background-image: url('/corner.png');
+        background-image: url('/nogamenolife-text/corner.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: top left;

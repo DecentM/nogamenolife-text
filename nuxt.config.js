@@ -26,7 +26,10 @@ const analyze = dev && !ci
 
 module.exports = {
   'srcDir': './app',
-  'head':   {
+  'router': {
+    'base': '/nogamenolife-text/',
+  },
+  'head': {
     'titleTemplate': 'No Game No Life text demo',
     'meta':          [
       {'charset': 'utf-8',},
