@@ -1,7 +1,30 @@
 <script>
+  import axios from 'axios'
+
   const crappyClone = (payload) => JSON.parse(JSON.stringify(payload))
 
   export default {
+    async asyncData () {
+      let res = null
+
+      try {
+        res = await axios.head('https://blog.decentm.com/no-game-no-life-text-effect-css/')
+      } catch (error) {
+        res = null
+
+        if (error.response) {
+          res = error.response
+        }
+      }
+
+      const postPublished = res.status !== 404
+      const postStatus = res
+
+      return {
+        postPublished,
+        postStatus,
+      }
+    },
     data () {
       return {
         'showPalette': false,
@@ -62,6 +85,7 @@
 
 <style lang="scss" scoped>
   @import '../scss/mixins';
+  @import '../scss/variables';
 
   .panel {
     display: flex;
@@ -160,6 +184,43 @@
     justify-content: flex-end;
     padding: 1rem;
   }
+
+  @keyframes pulse {
+    from {
+      opacity: .40;
+    }
+
+    to {
+      opacity: .85;
+    }
+  }
+
+  .blog-link {
+    > p {
+      padding-right: 1rem;
+
+      &::before {
+        margin-right: .5rem;
+        transform: translateY(2px);
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        content: '';
+        background-color: map-get($colours, 'red');
+        border-radius: 50%;
+        animation-name: pulse;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-play-state: running;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+
+    > * {
+      display: inline-block;
+    }
+  }
 </style>
 
 <template lang="pug">
@@ -218,9 +279,19 @@
       .backlink
         p Made by DecentM on the 1st of April, 2018
         a(
+          v-if="postPublished",
           href="https://blog.decentm.com/no-game-no-life-text-effect-css",
           rel="noopener",
           target="_blank"
         )
           button.is-brand Read how it's made!
+
+        .blog-link(v-else)
+          p I'm still writing the blog post. ({{postStatus.status}})
+          a(
+            href="https://blog.decentm.com/",
+            rel="noopener",
+            target="_blank"
+          )
+            button.is-brand Visit my blog!
 </template>
