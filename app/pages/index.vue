@@ -108,6 +108,10 @@
     > * {
       width: 100%;
     }
+
+    &:not(.font-ngnl) * {
+      font-size: 1.4rem;
+    }
   }
 
   .ngnl-text-wrapper {
@@ -122,8 +126,13 @@
     .ngnl-text-content {
       display: flex;
       white-space: nowrap;
+      color: map-get($colours, 'white');
+      text-shadow:
+        0 0 8px map-get($colours, 'pink'),
+        0 0 12px map-get($colours, 'pink');
 
       > * {
+        line-height: 40px;
         width: 0;
         text-align: center;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -166,7 +175,6 @@
           @include ease-out(1s);
 
           width: 45rem;
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         }
       }
     }
