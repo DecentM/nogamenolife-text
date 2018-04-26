@@ -45,6 +45,13 @@
 
         return true
       },
+      validateCustomText () {
+        const lines = this.customText.split('\n')
+
+        if (lines.length > 8) {
+          this.customText = this.customText.split('\n').slice(0, 8).join('\n')
+        }
+      },
     },
     'computed': {
       postUrl () {
@@ -260,17 +267,16 @@
 
     .showcase-wrapper.spread(:class="{'font-ngnl': font}")
       .column
-        .row.is-maxheight-2.is-hcentered
-          input.is-maxwidth-50(type="text", placeholder="Write your custom text here", v-model="customText")
+        .row.is-maxheight-7.is-hcentered.custom-text-holder
+          textarea.is-maxheight-7.is-maxwidth-50.custom-text-holder(type="text", placeholder="Write your custom text here", v-model="customText", @input="validateCustomText")
         .showcase.is-vcentered.is-hcentered
           .box.is-fullwidth.is-fullheight.is-maxwidth-50.is-maxheight-20.is-hcentered.is-vcentered.bg-white
             .content.text-pink
-              no-ssr
-                .ngnl-text-wrapper
-                  .ngnl-text-content(v-if="customText", :class="{showing}")
-                    h3 {{customText}}
-                  .ngnl-text-content(v-else, v-for="(line, index) in randomLines(countLimit)", :class="[{showing}, 'has-delay-' + index]")
-                    h3 {{line}}
+              .ngnl-text-wrapper
+                .ngnl-text-content(v-for="(entry, index) in customText.split('\\n')", v-show="customText && customText.length", :class="[{showing}, 'has-delay-' + index]")
+                  h3 {{entry}}
+                .ngnl-text-content(v-show="!(customText && customText.length)", v-for="(line, index) in lines", :class="[{showing}, 'has-delay-' + index]")
+                  h3 {{line}}
     .credits
       a.text-white(
         href="https://thekornk.deviantart.com/art/Jibril-No-Game-No-Life-639024930",

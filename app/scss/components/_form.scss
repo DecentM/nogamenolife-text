@@ -19,7 +19,8 @@ label {
   }
 }
 
-input {
+input,
+textarea {
   @include material-shadow(3);
   @include smart-padding(.5rem);
 
