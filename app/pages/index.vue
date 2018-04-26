@@ -304,7 +304,7 @@
               .ngnl-text-wrapper
                 .ngnl-text-content(v-for="(entry, index) in customText.split('\\n')", v-show="customText && customText.length", :class="[{showing}, 'has-delay-' + index]")
                   h3 {{entry}}
-                .ngnl-text-content(v-show="!(customText && customText.length)", v-for="(line, index) in lines", :class="[{showing}, 'has-delay-' + index]")
+                .ngnl-text-content(v-show="!(customText && customText.length)", v-for="(line, index) in limitBy(lines, countLimit)", :class="[{showing}, 'has-delay-' + index]")
                   h3 {{line}}
     .credits
       a.text-white(
