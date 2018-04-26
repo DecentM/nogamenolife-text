@@ -7,13 +7,14 @@
   export default {
     data () {
       return {
-        'showPalette':   false,
-        'font':          true,
-        'showing':       true,
-        'countLimit':    6,
-        'customText':    '',
-        'postStatus':    null,
-        'postPublished': true,
+        'showPalette':     false,
+        'font':            true,
+        'showing':         true,
+        'countLimit':      6,
+        'customText':      '',
+        'postStatus':      null,
+        'postPublished':   true,
+        'animationPlayed': false,
       }
     },
     async mounted () {
@@ -237,6 +238,27 @@
       display: inline-block;
     }
   }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      filter: brightness(100%) saturate(100%);
+    }
+
+    50% {
+      filter: brightness(80%) saturate(90%);
+    }
+  }
+
+  .hint {
+    @include decentm-background;
+
+    animation-name: breathe;
+    animation-duration: 2.33s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 </style>
 
 <template lang="pug">
@@ -257,7 +279,14 @@
 
     .panel-wrapper
       .panel.is-minheight-4
-        button.bg-purple.text-white(@click="toggle('showing')") Show text: {{showing ? 'ON' : 'OFF'}}
+        button.bg-purple.text-white(
+          @click="() => {toggle('showing'); animationPlayed = true}",
+          :class="{'hint': !animationPlayed}"
+        )
+          div(v-show="animationPlayed")
+            | Show text: {{showing ? 'ON' : 'OFF'}}
+          div(v-show="!animationPlayed")
+            | Click here to re-run the animation!
         button.bg-yellow(@click="toggle('font')") Use font: {{font ? 'ON' : 'OFF'}}
         button.bg-red.text-white(@click="toggle('showPalette')") Show palette: {{showPalette ? 'ON' : 'OFF'}}
         button.bg-white
